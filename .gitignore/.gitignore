@@ -1,0 +1,846 @@
+  /**
+     * Page 1 xml
+     */
+     <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.android.millionaire.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mill"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Name"
+            android:inputType="text"
+            android:textSize="36sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/Question1"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            android:paddingLeft="8dp"
+
+            <CheckBox
+                android:id="@+id/India"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/Canada"
+                android:paddingBottom="16dp"
+                android:paddingRight="24dp"
+                android:text="@string/India"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo" />
+
+            <CheckBox
+                android:id="@+id/Peru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/Iceland"
+                android:layout_toRightOf="@id/India"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:text="@string/Peru"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+
+            <CheckBox
+                android:id="@+id/Canada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:text="@string/Canada"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+            <CheckBox
+                android:id="@+id/Iceland"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/Canada"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:text="@string/Iceland"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+            <Button
+                android:id="@+id/Button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/Iceland"
+                android:text="@string/Button1"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:onClick="firstPoints"
+                style="?android:attr/borderlessButtonStyle"  />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+/**
+     * Page 1 java
+     */
+     
+     package com.example.android.millionaire;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    public Button button;
+    String Name;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+/**
+ * Get string name
+ */
+        EditText text = (EditText) findViewById(R.id.name_field);
+         Name = text.getText().toString();
+
+
+        /**
+         * Send it to activity_5
+         */
+        button  = (Button) findViewById(R.id.Button1);{
+
+        button.setOnClickListener(new View.OnClickListener() {
+                                      @Override
+                                      public void onClick(View v) {
+                                          EditText Name = (EditText) findViewById(R.id.name_field);
+                                          Intent intent = new Intent(MainActivity.this, Activity_5.class);
+                                          intent.putExtra("Name", Name.getText().toString());
+                                          startActivity(intent);
+                                      }
+                                  });
+
+
+        /**
+         * Onclick go to next activity
+         */
+        button = (Button) findViewById(R.id.Button1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity_2();
+            }
+        });
+    }}
+    public void openActivity_2(){
+        Intent intent = new Intent(this, Activity_2.class);
+        startActivity(intent);
+    }
+}
+
+
+  /**
+     * Page 2 xml
+     */
+     <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.android.millionaire.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mill"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/Question2"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            android:paddingLeft="8dp"
+
+            <CheckBox
+                android:id="@+id/moth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/fly"
+                android:paddingBottom="16dp"
+                android:paddingRight="24dp"
+                android:text="@string/moth"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo" />
+
+            <CheckBox
+                android:id="@+id/roach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/scorpio"
+                android:layout_toRightOf="@id/moth"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:text="@string/roach"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+
+            <CheckBox
+                android:id="@+id/fly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/fly"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+            <CheckBox
+                android:id="@+id/scorpio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/fly"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:text="@string/scorpio"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+            <Button
+                android:id="@+id/Button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/scorpio"
+                android:text="@string/Button2"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                style="?android:attr/borderlessButtonStyle"  />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+     
+       /**
+     * Page 2 java
+     */
+     package com.example.android.millionaire;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+
+public class Activity_2 extends AppCompatActivity {
+
+    public Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_2);
+        button = (Button) findViewById(R.id.Button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity_3();
+            }
+        });
+    }
+
+    public void secondPoints(View view) {
+
+        //Figure out if moth is clicked
+        CheckBox moth = (CheckBox) findViewById(R.id.moth);
+        boolean hasMoth = moth.isChecked();
+
+        //Figure out if roach is clicked
+        CheckBox roach = (CheckBox) findViewById(R.id.roach);
+        boolean hasRoach = roach.isChecked();
+
+        //Figure out if fly is clicked
+        CheckBox fly = (CheckBox) findViewById(R.id.fly);
+        boolean hasFly = fly.isChecked();
+
+        //Figure out if scorpio is clicked
+        CheckBox scorpio = (CheckBox) findViewById(R.id.scorpio);
+        boolean hasScorpio = scorpio.isChecked();
+
+
+    }
+
+    /**
+     * Calculates the number of points
+     */
+    public int secondPoints(boolean hasMoth, boolean hasRoach, boolean hasFly, boolean hasScorpio) {
+
+        int secondPoints = 0;
+        if (hasMoth) {
+            secondPoints += 2;
+        }
+
+        if (hasRoach | hasFly | hasScorpio) {
+            secondPoints = 0;
+        }
+        return secondPoints;
+    }
+
+
+
+    // Create an intent
+    public void secondPoints(int secondPoints){
+        Intent secondIntent = new Intent(this, Activity_5.class);
+        secondIntent.putExtra("Second Points", secondPoints);
+
+        // Start activity
+        startActivity(secondIntent);}
+
+
+
+    /**
+     * Go to the next page
+     */
+    public void openActivity_3() {
+        Intent intent = new Intent(this, Activity_3.class);
+        startActivity(intent);
+    }
+}
+
+     
+       /**
+     * Page 3 xml
+     */
+     <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.android.millionaire.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mill"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/Question3"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            android:paddingLeft="8dp"
+
+            <CheckBox
+                android:id="@+id/Romania"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/Bulgaria"
+                android:paddingBottom="16dp"
+                android:paddingRight="24dp"
+                android:text="@string/Romania"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo" />
+
+            <CheckBox
+                android:id="@+id/Ukraine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/Moldavia"
+                android:layout_toRightOf="@id/Bulgaria"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:text="@string/Ukraine"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+
+            <CheckBox
+                android:id="@+id/Bulgaria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/Bulgaria"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+            <CheckBox
+                android:id="@+id/Moldavia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/Bulgaria"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:text="@string/Moldavia"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:theme="@android:style/Theme.Holo"/>
+
+            <Button
+                android:id="@+id/Button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/Moldavia"
+                android:text="@string/Button3"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                style="?android:attr/borderlessButtonStyle"  />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+     
+       /**
+     * Page 3 java
+     */
+     package com.example.android.millionaire;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+
+public class Activity_3 extends AppCompatActivity {
+
+    public Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_3);
+        button = (Button) findViewById(R.id.Button3);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity_4();
+            }
+        });
+    }
+
+
+    public void thirdPoints(View view) {
+
+        //Figure out if Romania is clicked
+        CheckBox Romania = (CheckBox) findViewById(R.id.Romania);
+        boolean hasRomania = Romania.isChecked();
+
+        //Figure out if Ukraine is clicked
+        CheckBox Ukraine = (CheckBox) findViewById(R.id.Ukraine);
+        boolean hasUkraine = Ukraine.isChecked();
+
+        //Figure out if Bulgaria is clicked
+        CheckBox Bulgaria = (CheckBox) findViewById(R.id.Bulgaria);
+        boolean hasBulgaria = Bulgaria.isChecked();
+
+        //Figure out if Moldavia is clicked
+        CheckBox Moldavia = (CheckBox) findViewById(R.id.Moldavia);
+        boolean hasSMoldavia = Moldavia.isChecked();
+
+
+    }
+
+    /**
+     * Calculates the number of points
+     */
+    public int thirdPoints(boolean hasRomania, boolean hasUkraine, boolean hasBulgaria, boolean hasMoldavia) {
+
+        int thirdPoints = 0;
+        if (hasRomania) {
+            thirdPoints += 2;
+        }
+
+        if (hasUkraine | hasBulgaria | hasMoldavia) {
+            thirdPoints = 0;
+        }
+        return thirdPoints;
+    }
+
+
+
+    // Create an intent
+    public void thirdPoints(int thirdPoints){
+        Intent thirdIntent = new Intent(this, Activity_5.class);
+        thirdIntent.putExtra("Third Points", thirdPoints);
+
+        // Start activity
+        startActivity(thirdIntent);}
+    /**
+     * Go to the next page
+     */
+    public void openActivity_4(){
+        Intent intent = new Intent(this, Activity_4.class);
+        startActivity(intent);
+    }
+}
+
+       /**
+     * Page 4 xml
+     */
+     <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.android.millionaire.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mill"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/Question4"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/yes_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:text="@string/yes"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/no_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:text="@string/no"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/Button4"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="@string/Button4"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+        </RadioGroup>
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/superman" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+     
+       /**
+     * Page 4 java
+     */
+     package com.example.android.millionaire;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+
+public class Activity_4 extends AppCompatActivity {
+
+    public Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_4);
+        button = (Button) findViewById(R.id.Button4);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity_5();
+            }
+        });}
+
+    public void forthPoints(View view) {
+
+        //Figure out if Yes is clicked
+        RadioButton Yes = (RadioButton) findViewById(R.id.yes_radio_button);
+        boolean hasYes = Yes.isChecked();
+
+        //Figure out if No is clicked
+        RadioButton No = (RadioButton) findViewById(R.id.no_radio_button);
+        boolean hasNo = No.isChecked();
+
+
+    }
+
+    /**
+     * Calculates the number of points
+     */
+    public int forthPoints(boolean hasYes, boolean hasNo) {
+
+        int forthPoints = 0;
+        if (hasYes) {
+            forthPoints += 4;
+        }
+
+        if (hasNo) {
+            forthPoints = 0;
+        }
+        return forthPoints;
+    }
+
+
+
+    // Create an intent
+    public void forthPoints(int forthPoints){
+        Intent forthIntent = new Intent(this, Activity_5.class);
+        forthIntent.putExtra("Forth Points", forthPoints);
+
+        // Start activity
+        startActivity(forthIntent);}
+
+    /**
+     * Go to the next page
+     */
+    public void openActivity_5(){
+        Intent intent = new Intent(this, Activity_5.class);
+        startActivity(intent);
+    }
+}
+
+       /**
+     * Page 5 xml
+     */
+     <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rain"
+    tools:context="com.example.android.millionaire.MainActivity">
+
+
+    <Button
+        android:id="@+id/Button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/reset"
+        android:textSize="64dp"
+        android:theme="@android:style/Theme.Holo" />
+    <Button
+        android:id="@+id/Button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "See results"
+        android:textSize="48dp"
+        android:onClick="displayToastMsg"
+        android:layout_centerHorizontal="true"
+        android:theme="@android:style/Theme.Holo"/>
+
+
+</RelativeLayout>
+
+       /**
+     * Page 5 java
+     */
+package com.example.android.millionaire;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.jar.Attributes;
+
+public class Activity_5 extends AppCompatActivity {
+    public Button button;
+    /**
+     * Get EditText from MainActivity
+     */
+    public void getName(){
+        Intent intent = getIntent();
+        String Name = intent.getExtras().getString("Name");
+    }
+
+    /**
+     * Get intents from Activities
+     */
+    Intent firstIntent = getIntent();
+    int firstPoints = firstIntent.getIntExtra("firstPoints", 0);
+
+    Intent intent = getIntent();
+    String Name = intent.getExtras().getString("Name");
+
+    Intent secondIntent = getIntent();
+    int secondPoints = secondIntent.getIntExtra("secondPoints", 0);
+
+
+    Intent thirdIntent = getIntent();
+    int thirdPoints = thirdIntent.getIntExtra("thirdPoints", 0);
+
+    Intent forthIntent = getIntent();
+    int forthPoints = forthIntent.getIntExtra("forthPoints", 0);
+
+    int totalPoints;
+
+
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_5);
+        button = (Button) findViewById(R.id.Button5);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
+            }
+        });
+        button = (Button) findViewById(R.id.Button6);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                totalPoints = firstPoints + secondPoints + thirdPoints + forthPoints;
+                Toast.makeText(getApplicationContext(), "you scored" + totalPoints,  Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+    /**
+     * Reset
+     */
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+}
